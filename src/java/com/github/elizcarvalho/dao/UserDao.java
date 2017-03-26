@@ -6,6 +6,7 @@
 package com.github.elizcarvalho.dao;
 
 import com.github.elizcarvalho.entity.User;
+import com.github.elizcarvalho.factory.Factory;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,15 +19,10 @@ import javax.persistence.TypedQuery;
  */
 public class UserDao {
    
-    private EntityManagerFactory factory = null;
-    private EntityManager em = null;
+    private EntityManager em = Factory.getEntityManager();
     
     
-    public UserDao(){
-        factory = Persistence.createEntityManagerFactory("AsmntJavaWebPU");
-        em = factory.createEntityManager();
-    }
-    
+    //cadastra usuario
     public void cadastrarUser(User user){
         
         em.getTransaction().begin();
@@ -36,7 +32,7 @@ public class UserDao {
         
     }
     
-    
+    //checa se o usuario existe para efetuar o login
     public boolean existUser(User user){
         
         boolean userFound = false;

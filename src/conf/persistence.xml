@@ -3,7 +3,7 @@
   <persistence-unit name="AsmntJavaWebPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>com.github.elizcarvalho.entity.User</class>
-    <class>com.github.elizcarvalho.entity.Livro2</class>
+    <class>com.github.elizcarvalho.entity.Book2</class>
     <properties>
       <!-- Configuração JDBC -->
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/asmntjavaweb?zeroDateTimeBehavior=convertToNull"/>
