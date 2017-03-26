@@ -10,8 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="style.css" rel="stylesheet" type="text/css">
-        <title>Great!</title>
+        <link href="jsp/style.css" rel="stylesheet" type="text/css">
+        <title>Library - Great!</title>
         <style>
             
             fieldset {
@@ -73,10 +73,10 @@
                 <h1>Great</h1>
                 </br>
                 <div class="campo">
-                    <label for="text"><c:out value="The user ${user.username} was successfully registered."/></label>
+                    <label for="text"><c:out value="The user ${user.username} with e-mail ${user.email} was successfully registered."/></label>
                 </div>
                 <br/><br/>
-                <a href="login.htm"> -- Back -- </a>
+                <a href="login.htm"> -- Login -- </a>
             </fieldset> 
         </center>        
     </body>

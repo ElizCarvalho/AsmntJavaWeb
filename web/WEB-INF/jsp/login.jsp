@@ -11,8 +11,8 @@
 
 <html>
     <head>
-        <title>TP3 - Login</title>
-        <link href="style.css" rel="stylesheet" type="text/css">
+        <title>Library - Login</title>
+        <link href="jsp/style.css" rel="stylesheet" type="text/css">
         <style>
             
             fieldset {

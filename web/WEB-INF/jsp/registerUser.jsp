@@ -11,8 +11,8 @@
 
 <html>
     <head>	
-        <title>User Registration</title>	
-        <link href="style.css" rel="stylesheet" type="text/css">
+        <title>Library - User Registration</title>	
+        <link href="jsp/style.css" rel="stylesheet" type="text/css">
         <style>
             
             fieldset {
