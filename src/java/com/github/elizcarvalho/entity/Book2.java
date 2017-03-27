@@ -31,39 +31,22 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Book2.findByReleaseyear", query = "SELECT b FROM Book2 b WHERE b.releaseyear = :releaseyear")})
 public class Book2 implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    @GeneratedValue
     @Column(name = "idbook")
     private Integer idbook;
-    @Basic(optional = false)
+    
     @Column(name = "title")
     private String title;
-    @Basic(optional = false)
+    
     @Column(name = "author")
     private String author;
-    @Basic(optional = false)
+    
     @Column(name = "publishingcomp")
     private String publishingcomp;
-    @Basic(optional = false)
+    
     @Column(name = "releaseyear")
     private int releaseyear;
-
-    public Book2() {
-    }
-
-    public Book2(Integer idbook) {
-        this.idbook = idbook;
-    }
-
-    public Book2(Integer idbook, String title, String author, String publishingcomp, int releaseyear) {
-        this.idbook = idbook;
-        this.title = title;
-        this.author = author;
-        this.publishingcomp = publishingcomp;
-        this.releaseyear = releaseyear;
-    }
 
     public Integer getIdbook() {
         return idbook;
@@ -104,30 +87,5 @@ public class Book2 implements Serializable {
     public void setReleaseyear(int releaseyear) {
         this.releaseyear = releaseyear;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idbook != null ? idbook.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Book2)) {
-            return false;
-        }
-        Book2 other = (Book2) object;
-        if ((this.idbook == null && other.idbook != null) || (this.idbook != null && !this.idbook.equals(other.idbook))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.github.elizcarvalho.entity.Book2[ idbook=" + idbook + " ]";
-    }
-    
+   
 }

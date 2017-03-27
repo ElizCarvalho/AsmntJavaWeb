@@ -7,8 +7,9 @@ package com.github.elizcarvalho.controller;
 
 import com.github.elizcarvalho.dao.Book2Dao;
 import com.github.elizcarvalho.entity.Book2;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author Eliz
  */
+@Controller
 public class Book2Controller {
    
     @RequestMapping(value="/startRegisterBook.htm", method = RequestMethod.GET )
@@ -31,7 +33,7 @@ public class Book2Controller {
         return "sucessoBook";
     }
     
-    @RequestMapping(value = "/updateBook.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateBook.htm", method = RequestMethod.GET)
     public String updateBook(@ModelAttribute("book") Book2 book, HttpServletRequest request){
         
         Book2Dao bdao = new Book2Dao();
@@ -41,9 +43,10 @@ public class Book2Controller {
         
     }
     
-    @RequestMapping(value = "/deleteBook.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteBook.htm", method = RequestMethod.GET)
     public String deleteBook(@ModelAttribute("book") Book2 book, HttpServletRequest request){
         
+        int idbook = Integer.valueOf(request.getParameter("idbook"));
         Book2Dao bdao = new Book2Dao();
         bdao.deleteBook(book);
         request.setAttribute("message", "The book delete successfully!");
@@ -52,7 +55,10 @@ public class Book2Controller {
     }
     
     @RequestMapping(value = "/listBook.htm", method = RequestMethod.GET)
-    public String listaBook(){
+    public String listaBook(HttpServletRequest req){
+        Book2Dao bdao = new Book2Dao();
+        List<Book2> blist = bdao.listAllBooks();
+        req.setAttribute("listBook", blist);
         return "listBook";
     }
 }

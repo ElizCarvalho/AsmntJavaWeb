@@ -11,7 +11,7 @@
 
 <html>
     <head>	
-        <title>Library - User Registration</title>	
+        <title>Library - Book Registration</title>	
         <link href="jsp/style.css" rel="stylesheet" type="text/css">
         <style>
             
@@ -72,27 +72,33 @@
     <body> 
         <center>
         <fieldset>
-            <h2>User Registration</h2>
+            <h2>Library - Book Registration</h2>
 
-            <s:form method="post" modelAttribute="user" action="cadastrarUser.htm">
+            <s:form method="post" modelAttribute="book" action="registerBook.htm">
             
                 <table>
                     <tr>
                         <div class="campo">
-                            <td><label for="username">Username: </label></td>
-                            <td><s:input path="username" size="35em"/> </td>
+                            <td><label for="title">Title: </label></td>
+                            <td><s:input path="title" size="55em"/> </td>
                         </div>
                     </tr>
                     <tr>
                         <div class="campo">
-                            <td><label for="password">Password: </label></td>
-                            <td><s:password path="password" size="35em"/></td>
+                            <td><label for="author">Author: </label></td>
+                            <td><s:input path="author" size="55em"/></td>
                         </div>
                     </tr>
                     <tr>
                         <div class="campo">
-                            <td><label for="email">Email: </label></td>
-                            <td><s:input path="email" size="35em"/></td>
+                            <td><label for="publishingcomp">Publishing Company: </label></td>
+                            <td><s:input path="publishingcomp" size="55em"/></td>
+                        </div
+                    </tr>
+                    <tr>
+                        <div class="campo">
+                            <td><label for="releaseyear">Release Year: </label></td>
+                            <td><s:input path="releaseyear" size="35em"/></td>
                         </div
                     </tr>
                     
@@ -104,7 +110,7 @@
             </s:form>
 
             <br/>
-            <a href="login.htm"> -- Back --</a>
+            <a href="index.htm"> -- Index --</a>
         </fieldset>
     </center>
     </body>
