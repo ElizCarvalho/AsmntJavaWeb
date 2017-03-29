@@ -6,7 +6,6 @@
 package com.github.elizcarvalho.entity;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,12 +28,13 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Book2.findByAuthor", query = "SELECT b FROM Book2 b WHERE b.author = :author")
     , @NamedQuery(name = "Book2.findByPublishingcomp", query = "SELECT b FROM Book2 b WHERE b.publishingcomp = :publishingcomp")
     , @NamedQuery(name = "Book2.findByReleaseyear", query = "SELECT b FROM Book2 b WHERE b.releaseyear = :releaseyear")})
+
 public class Book2 implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idbook")
-    private Integer idbook;
+    private int idbook;
     
     @Column(name = "title")
     private String title;
@@ -48,11 +48,11 @@ public class Book2 implements Serializable {
     @Column(name = "releaseyear")
     private int releaseyear;
 
-    public Integer getIdbook() {
+    public int getIdbook() {
         return idbook;
     }
 
-    public void setIdbook(Integer idbook) {
+    public void setIdbook(int idbook) {
         this.idbook = idbook;
     }
 

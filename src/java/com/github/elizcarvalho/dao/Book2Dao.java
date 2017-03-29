@@ -10,7 +10,6 @@ import com.github.elizcarvalho.factory.Factory;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 
 /**
  *
@@ -23,11 +22,16 @@ public class Book2Dao {
     //cadastra o livro
     public void registerBook(Book2 book){
         
-        //so cadastra se o livro ainda nao existir no bd
-        if (!existBook(book)==true){
-            em.getTransaction().begin();
-            em.persist(book);
-            em.getTransaction().commit();
+        try{
+            //so cadastra se o livro ainda nao existir no bd
+            if (!existBook(book)==true){
+                em.getTransaction().begin();
+                em.persist(book);
+                em.getTransaction().commit();
+            }
+        } catch(Exception ex){
+            ex.printStackTrace();
+            em.getTransaction().rollback();
         }
           
     }
@@ -36,9 +40,8 @@ public class Book2Dao {
     public boolean existBook(Book2 book){
         
         boolean bookFound = false;
-        em.getTransaction().begin();
         Query q = em.createNamedQuery("Book2.findByTitle", Book2.class)
-                .setParameter(1, book.getTitle());
+                .setParameter("title", book.getTitle());
         List<Book2> list = q.getResultList();
         if (!list.isEmpty()){
             bookFound = true;
@@ -59,26 +62,36 @@ public class Book2Dao {
     //apagar o livro pela id
     public void deleteBook(Book2 book){
         
-        em.getTransaction().begin();
-        //pega o objeto e vincula ao objeto do BD
-        Book2 bAux = em.find(Book2.class, book.getIdbook());
-        //agora que bAux esta vinculado ao contexto de persistencia podemos excluir
-        em.remove(bAux);
-        em.getTransaction().commit();
+        try {
+            em.getTransaction().begin();
+            //pega o objeto e vincula ao objeto do BD
+            Book2 bAux = em.find(Book2.class, book.getIdbook());
+            //agora que bAux esta vinculado ao contexto de persistencia podemos excluir
+            em.remove(bAux);
+            em.getTransaction().commit();
+        } catch(Exception ex){
+            ex.printStackTrace();
+            em.getTransaction().rollback();
+        }
         
     }
     
     //efetua atualizacao do cadastro do livro
     public void updateBook(Book2 book){
         
-        em.getTransaction().begin();
-        Book2 bAux = em.find(Book2.class, book.getIdbook());
-        bAux.setTitle(book.getTitle());
-        bAux.setAuthor(book.getAuthor());
-        bAux.setPublishingcomp(book.getPublishingcomp());
-        bAux.setReleaseyear(book.getReleaseyear());
-        em.merge(bAux);
-        em.getTransaction().commit();
+        try {
+            em.getTransaction().begin();
+            //Book2 bAux = em.find(Book2.class, book.getIdbook());
+            //bAux.setTitle(book.getTitle());
+            //bAux.setAuthor(book.getAuthor());
+            //bAux.setPublishingcomp(book.getPublishingcomp());
+            //bAux.setReleaseyear(book.getReleaseyear());
+            em.merge(book);
+            em.getTransaction().commit();
+        } catch(Exception ex){
+            ex.printStackTrace();
+            em.getTransaction().rollback();
+        }
 
     }
 }

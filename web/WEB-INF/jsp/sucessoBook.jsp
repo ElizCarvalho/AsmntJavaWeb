@@ -73,10 +73,10 @@
                 <h1>Great</h1>
                 </br>
                 <div class="campo">
-                    <label for="text"><c:out value="The user ${user.username} with e-mail ${user.email} was successfully registered."/></label>
+                    <label for="text"><c:out value="The book ${book.title} was successfully registered."/></label>
                 </div>
                 <br/><br/>
-                <a href="login.htm"> -- Login -- </a>
+                <a href="index.htm"> -- Back -- </a>
             </fieldset> 
         </center>        
     </body>

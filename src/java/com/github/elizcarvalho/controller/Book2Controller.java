@@ -28,7 +28,7 @@ public class Book2Controller {
     
     @RequestMapping(value="/registerBook.htm", method = RequestMethod.POST )
     public String cadastrarBook(@ModelAttribute("book") Book2 book){
-        Book2Dao bdao = new Book2Dao();
+        Book2Dao bdao = new Book2Dao();        
         bdao.registerBook(book);
         return "sucessoBook";
     }
@@ -43,13 +43,11 @@ public class Book2Controller {
         
     }
     
-    @RequestMapping(value = "/deleteBook.htm", method = RequestMethod.GET)
-    public String deleteBook(@ModelAttribute("book") Book2 book, HttpServletRequest request){
-        
-        int idbook = Integer.valueOf(request.getParameter("idbook"));
+    @RequestMapping(value = "/deleteBook", method = RequestMethod.DELETE)
+    public String apagarBook(@ModelAttribute(value = "book") Book2 book, HttpServletRequest request){
         Book2Dao bdao = new Book2Dao();
         bdao.deleteBook(book);
-        request.setAttribute("message", "The book delete successfully!");
+        //request.setAttribute("message", "The book delete successfully!");
         return "listBook";
         
     }

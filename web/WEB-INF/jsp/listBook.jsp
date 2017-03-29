@@ -16,7 +16,7 @@
         <h1>Books List</h1>
         <hr/>
         <a href="index.htm"> << Back </a>
-        
+        <br/>
         <table border="1">
             <thead>
                 <th>Id</th>
@@ -37,16 +37,11 @@
                         <td>${book.publishingcomp}</td>
                         <td>${book.releaseyear}</td>
                         <td>
-                            <form action="updateBook.htm" method="POST">
-                                <input type="hidden" name=""
+                            <form action=".htm" method="POST">
+                                <input type="hidden" name=""/>
                             </form>
                         </td>
-                        <td>
-                            <form action="deleteBook" method="POST">
-                                <input type="hidden" name="idDelete" value="${book.idbook}"/>
-                                <input type="submit" value="Delete"/>
-                            </form>
-                        </td>
+                        <td><a href="deleteBook?id=${book.idbook}">Delete</a></td>
 
                     </tr>
                 </c:forEach>

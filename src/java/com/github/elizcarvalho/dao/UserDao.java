@@ -9,8 +9,6 @@ import com.github.elizcarvalho.entity.User;
 import com.github.elizcarvalho.factory.Factory;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 /**
@@ -28,7 +26,6 @@ public class UserDao {
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
-        em.close();
         
     }
     
@@ -37,7 +34,7 @@ public class UserDao {
         
         boolean userFound = false;
         List<User> list;
-
+        em.getTransaction().begin();
         TypedQuery<User> search = em.createQuery("SELECT u FROM User u WHERE u.username=?1 AND u.password=?2", User.class)
                 .setParameter(1, user.getUsername())
                 .setParameter(2, user.getPassword());
@@ -48,7 +45,6 @@ public class UserDao {
         if (!list.isEmpty()){
             userFound = true;
         }
-        
         return userFound;
     }
     
