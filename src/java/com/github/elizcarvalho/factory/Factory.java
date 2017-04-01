@@ -18,7 +18,7 @@ public class Factory {
     private static EntityManagerFactory emf;
     private static EntityManager em;
     
-    //fica com o nomde da entidade de persistencia
+    //fica com o nome da entidade de persistencia
     //responsavel por criar entitymanager
     public static EntityManager getEntityManager(){
         if(emf==null){

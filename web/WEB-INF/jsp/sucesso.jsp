@@ -1,19 +1,12 @@
-<%-- 
-    Document   : login
-    Created on : 26/03/2017, 10:50:04
-    Author     : Eliz
---%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="jsp/style.css" rel="stylesheet" type="text/css">
+        <link href="<c:url value="/recursos/css/main.css" />" rel="stylesheet">
         <title>Library - Great!</title>
         <style>
-            
             fieldset {
 		border: 0;
             }
@@ -63,8 +56,7 @@
 
             .botao, select {
 		cursor: pointer;
-            }
-            
+            } 
 	</style>
     </head>
     <body>
@@ -73,10 +65,10 @@
                 <h1>Great</h1>
                 </br>
                 <div class="campo">
-                    <label for="text"><c:out value="The bookd ${book.title} was successfully registered."/></label>
+                    <label for="text"><c:out value="The user ${user.username} with e-mail ${user.email} was successfully registered!"/></label>
                 </div>
                 <br/><br/>
-                <a href="listBook.htm"> -- Back -- </a>
+                <a href="login.htm"> -- Back -- </a>
             </fieldset> 
         </center>        
     </body>

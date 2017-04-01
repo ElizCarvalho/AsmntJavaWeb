@@ -5,6 +5,7 @@
  */
 package com.github.elizcarvalho.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +18,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "user")
-public class User {
+public class User implements Serializable {
     
     @Id
     @GeneratedValue
@@ -45,7 +45,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username.toUpperCase().trim();
     }
 
     public String getPassword() {
@@ -61,7 +61,7 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email.toLowerCase().trim();
     }
     
 }

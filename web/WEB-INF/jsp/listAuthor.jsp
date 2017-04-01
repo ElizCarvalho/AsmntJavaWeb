@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="<c:url value="/recursos/css/main.css" />" rel="stylesheet">
-        <title>Library - Great!</title>
+        <title>Library - Author List</title>
         <style>
             fieldset {
 		border: 0;
@@ -60,16 +60,32 @@
 	</style>
     </head>
     <body>
-        <center>
-            <fieldset>
-                <h1>Great</h1>
-                </br>
-                <div class="campo">
-                    <label for="text"><c:out value="The book ${book.title} was successfully registered."/></label>
-                </div>
-                <br/><br/>
-                <a href="index.htm"> -- Back -- </a>
-            </fieldset> 
-        </center>        
-    </body>
+        <h1>Books Author</h1>
+        <hr/>
+        <a href="index.htm"> << Back </a>
+        <br/>
+        <table border="1">
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                <c:forEach items="${listAuthor}" var="author" >
+                    <tr>
+                        <td>${author.id}</td>
+                        <td>${author.name}</td>
+                        <td>
+                            <form action=".htm" method="POST">
+                                <input type="hidden" name=""/>
+                            </form>
+                        </td>
+                        <td><a href="deleteAuthor?id=${author.id}">Delete</a></td>
+                    </tr>
+                </c:forEach>  
+            </tbody>            
+        </table>
+        
+    </body> 
 </html>

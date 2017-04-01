@@ -34,8 +34,8 @@ public class LoginController {
 
     //esse é chamado pelo formulario de login
     //se o login estiver certo, encaminha para pagina index
-    @RequestMapping(value = "/efetuarLogin.htm", method = RequestMethod.POST)
-    public String efetuarLogin(@ModelAttribute("user") User user, HttpSession session, HttpServletRequest request){
+    @RequestMapping(value = "/singIn.htm", method = RequestMethod.POST)
+    public String singIn(@ModelAttribute("user") User user, HttpSession session, HttpServletRequest request){
         
         UserDao udao = new UserDao();
         if(udao.existUser(user)){
@@ -47,7 +47,5 @@ public class LoginController {
         return "login";
         
     }
-    
-    
-    
+
 }

@@ -1,11 +1,12 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="s" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head>	      	
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="<c:url value="/recursos/css/main.css" />" rel="stylesheet">
-        <title>Library - Great!</title>
+        <link href="/recursos/css/main.css" rel="stylesheet">
+        <title>Library - Book Registration</title>
         <style>
             fieldset {
 		border: 0;
@@ -56,20 +57,32 @@
 
             .botao, select {
 		cursor: pointer;
-            }
+            }  
 	</style>
     </head>
-    <body>
+
+    <body> 
         <center>
-            <fieldset>
-                <h1>Great</h1>
-                </br>
-                <div class="campo">
-                    <label for="text"><c:out value="The book ${book.title} was successfully registered."/></label>
-                </div>
-                <br/><br/>
-                <a href="index.htm"> -- Back -- </a>
-            </fieldset> 
-        </center>        
+        <fieldset>
+            <h2>Library - Author Registration</h2>
+
+            <s:form method="post" modelAttribute="author" action="registerAuthor.htm">
+                <table>
+                    <tr>
+                        <div class="campo">
+                            <td><label for="name">Name: </label></td>
+                            <td><s:input path="name" size="55em"/> </td>
+                        </div>
+                    </tr>     
+                </table>
+                <button class="botao submit" type="submit" name="submit">Register</button>
+                <button class="botao submit" type="reset" name="reset">Reset</button>     
+            </s:form>
+
+            <br/>
+            <a href="index.htm"> -- Index --</a>
+        </fieldset>
+    </center>
     </body>
+
 </html>

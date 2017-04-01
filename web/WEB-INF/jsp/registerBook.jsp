@@ -1,20 +1,13 @@
-<%-- 
-    Document   : login
-    Created on : 26/03/2017, 12:10:04
-    Author     : Eliz
---%>
-
-<%@taglib prefix="s" uri="http://www.springframework.org/tags/form" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="s" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html>
-    <head>	
-        <title>Library - Book Registration</title>	
-        <link href="jsp/style.css" rel="stylesheet" type="text/css">
+    <head>	      	
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="<c:url value="/recursos/css/main.css" />" rel="stylesheet">
+        <title>Library - Book Registration</title>
         <style>
-            
             fieldset {
 		border: 0;
             }
@@ -64,8 +57,7 @@
 
             .botao, select {
 		cursor: pointer;
-            }
-            
+            }  
 	</style>
     </head>
 
@@ -74,7 +66,7 @@
         <fieldset>
             <h2>Library - Book Registration</h2>
 
-            <s:form method="post" modelAttribute="book" action="registerBook.htm">
+            <s:form method="POST" modelAttribute="book" action="registerBook.htm">
             
                 <table>
                     <tr>
@@ -92,13 +84,13 @@
                     <tr>
                         <div class="campo">
                             <td><label for="publishingcomp">Publishing Company: </label></td>
-                            <td><s:input path="publishingcomp" size="55em"/></td>
+                            <td><s:input path="publishingComp" size="55em"/></td>
                         </div
                     </tr>
                     <tr>
                         <div class="campo">
                             <td><label for="releaseyear">Release Year: </label></td>
-                            <td><s:input path="releaseyear" size="35em"/></td>
+                            <td><s:input path="releaseYear" size="35em"/></td>
                         </div
                     </tr>
                     

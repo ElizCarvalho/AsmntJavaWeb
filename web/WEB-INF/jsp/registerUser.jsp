@@ -1,20 +1,13 @@
-<%-- 
-    Document   : login
-    Created on : 26/03/2017, 12:10:04
-    Author     : Eliz
---%>
-
-<%@taglib prefix="s" uri="http://www.springframework.org/tags/form" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="s" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html>
     <head>	
-        <title>Library - User Registration</title>	
-        <link href="jsp/style.css" rel="stylesheet" type="text/css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="<c:url value="/recursos/css/main.css" />" rel="stylesheet">
+        <title>Library - User Registration</title>
         <style>
-            
             fieldset {
 		border: 0;
             }
@@ -65,7 +58,6 @@
             .botao, select {
 		cursor: pointer;
             }
-            
 	</style>
     </head>
 
@@ -74,7 +66,7 @@
         <fieldset>
             <h2>User Registration</h2>
 
-            <s:form method="post" modelAttribute="user" action="cadastrarUser.htm">
+            <s:form method="post" modelAttribute="user" action="registerUser.htm">
             
                 <table>
                     <tr>

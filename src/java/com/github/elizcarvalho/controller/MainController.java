@@ -22,13 +22,18 @@ public class MainController {
         return "index";
     }
     
-    @RequestMapping(value = "/menu.htm", method = RequestMethod.GET)
-    public String callMenu(){
-        return "menu";
+    @RequestMapping(value = "/sucesso.htm", method = RequestMethod.GET)
+    public String callSucUser(){
+        return "sucesso";
     }
     
-    @RequestMapping(value = "/sucesso.htm", method = RequestMethod.GET)
-    public String callSucesso(){
-        return "sucesso";
+    @RequestMapping(value = "/sucessoBook.htm", method = RequestMethod.GET)
+    public String callSucBook(){
+        return "sucessoBook";
+    }
+    
+    @RequestMapping(value = "/sucessoAuthor.htm", method = RequestMethod.GET)
+    public String callSucAuthor(){
+        return "sucessoAuthor";
     }
 }
