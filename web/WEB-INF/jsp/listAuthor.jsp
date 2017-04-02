@@ -24,12 +24,12 @@
                 <br/>
                 <a href="index.htm"> << Back </a>
                 <br/><br/>
-                <table class="table" cellspacing="0" width="50%" border="1">
+                <table class="table" cellspacing="0" width="40%" border="1">
                     <thead>
                         <th>Id</th>
                         <th>Name</th>
                         <th>Update</th>
-                        <th>Delete</th>
+                        <!--<th>Delete</th>-->
                     </thead>
                     <tbody>
                         <c:forEach items="${listAuthor}" var="author" >
@@ -37,7 +37,7 @@
                                 <td align="center">${author.id}</td>
                                 <td align="center">${author.name}</td>
                                 <td align="center"><a href="showAuthor.htm?id=${author.id}">Update</a></td>
-                                <td align="center"><a href="deleteAuthor.htm?id=${author.id}">Delete</a></td>
+                                <!--<td align="center"><a href="deleteAuthor.htm?id=${author.id}">Delete</a></td>-->
                             </tr>
                         </c:forEach>  
                     </tbody>            

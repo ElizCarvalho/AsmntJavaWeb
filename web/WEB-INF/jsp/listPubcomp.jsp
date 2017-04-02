@@ -24,12 +24,12 @@
                 <br/>
                 <a href="index.htm"> << Back </a>
                 <br/><br/>
-                <table class="table" cellspacing="0" width="50%" border="1">
+                <table class="table" cellspacing="0" width="40%" border="1">
                     <thead>
                         <th>Id</th>
                         <th>Name</th>
                         <th>Update</th>
-                        <th>Delete</th>
+                        <!--<th>Delete</th>-->
                     </thead>
                     <tbody>
                         <c:forEach items="${listPubcomp}" var="pubcomp" >
@@ -37,7 +37,7 @@
                                 <td align="center">${pubcomp.id}</td>
                                 <td align="center">${pubcomp.name}</td>
                                 <td align="center"><a href="showPubcomp.htm?id=${pubcomp.id}">Update</a></td>
-                                <td align="center"><a href="deletePubcomp.htm?id=${pubcomp.id}">Delete</a></td>
+                                <!--<td align="center"><a href="deletePubcomp.htm?id=${pubcomp.id}">Delete</a></td>-->
                             </tr>
                         </c:forEach>  
                     </tbody>            
