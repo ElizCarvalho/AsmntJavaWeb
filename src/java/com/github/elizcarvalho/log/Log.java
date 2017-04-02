@@ -43,7 +43,7 @@ public class Log {
     
         public void gravarLog(String mensagem){
         
-        String fileLog = "C:\\Users\\Eliz\\Documents\\NetBeansProjects\\AsmntJavaWeb\\src\\java\\com\\github\\elizcarvalho\\log.txt";
+        String fileLog = "C:\\Users\\Eliz\\Documents\\NetBeansProjects\\AsmntJavaWeb\\src\\java\\com\\github\\elizcarvalho\\log\\log.txt";
         
         try {
             FileWriter fw = new FileWriter(fileLog, true);
