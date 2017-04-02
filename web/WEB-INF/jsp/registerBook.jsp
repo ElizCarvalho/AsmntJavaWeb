@@ -78,13 +78,13 @@
                     <tr>
                         <div class="campo">
                             <td><label for="author">Author: </label></td>
-                            <td><s:select path="author.id" itemValue="id" itemLabel="name" items="${listAuthor}" size="55em"/></td>
+                            <td><s:select path="authorId.id" itemValue="id" itemLabel="name" items="${listAuthor}" size="55em"/></td>
                         </div>
                     </tr>
                     <tr>
                         <div class="campo">
-                            <td><label for="publishingcomp">Publishing Company: </label></td>
-                            <td><s:select path="publishingcomp.id" itemValue="id" itemLabel="name" items="${listPcomp}" size="55em"/></td>
+                            <td><label for="pubcomp">Publishing Company: </label></td>
+                            <td><s:select path="publishingcompId.id" itemValue="id" itemLabel="name" items="${listPcomp}" size="55em"/></td>
                         </div
                     </tr>
                     <tr>

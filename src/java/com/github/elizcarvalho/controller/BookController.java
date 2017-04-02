@@ -5,8 +5,12 @@
  */
 package com.github.elizcarvalho.controller;
 
+import com.github.elizcarvalho.dao.AuthorDao;
 import com.github.elizcarvalho.dao.BookDao;
+import com.github.elizcarvalho.dao.PubcompDao;
+import com.github.elizcarvalho.entity.Author;
 import com.github.elizcarvalho.entity.Book;
+import com.github.elizcarvalho.entity.Pubcomp;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -23,7 +27,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BookController {
     
     @RequestMapping(value="/startRegisterBook.htm", method = RequestMethod.GET )
-    public String startRegisterBook(@ModelAttribute("book") Book book){
+    public String startRegisterBook(@ModelAttribute("book") Book book, HttpServletRequest req){
+        book.setAuthorId(new Author());
+        book.setPublishingcompId(new Pubcomp());
+        AuthorDao adao = new AuthorDao();
+        PubcompDao pdao = new PubcompDao();
+        req.setAttribute("listAuthor", adao.list());
+        req.setAttribute("listPubcomp", pdao.list());
         return "registerBook";
     }
     
