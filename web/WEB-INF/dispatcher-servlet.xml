@@ -51,10 +51,10 @@
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" />
           
-    
+    <mvc:resources mapping="/resources/**" location="/recursos/css/" />
     
     <!--
-    <mvc:resources mapping="/resources/**" location="/recursos/css/" />
+    
     The index controller.
     
     <bean name="indexController"

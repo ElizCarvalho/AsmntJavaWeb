@@ -5,7 +5,7 @@ body {
 h1, h2 {
     margin-bottom: 1rem;
     font-family: sans-serif;
-    color:#666
+    color: red;
 }
 
 body, input, select, password, button {
@@ -57,4 +57,13 @@ fieldset {
 
 .botao, select {
     cursor: pointer;
+}
+
+.table{
+    display: table;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    border-collapse: separate;
+    border-spacing: 2px;
 }

@@ -70,25 +70,25 @@
                         <tr>
                             <div class="campo">
                                 <td><label for="title">Title: </label></td>
-                                <td><s:input path="title" size="55em"/> </td>
+                                <td><s:input path="title" size="45"/> </td>
                             </div>
                         </tr>
                         <tr>
                             <div class="campo">
                                 <td><label for="author">Author: </label></td>
-                                <td><s:select path="author.id" itemValue="id" itemLabel="name" items="${listAuthor}" size="55em"/></td>
+                                <td><s:select path="author.id" itemValue="id" itemLabel="name" items="${listAuthor}"/></td>
                             </div>
                         </tr>
                         <tr>
                             <div class="campo">
                                 <td><label for="pubcomp">Publishing Company: </label></td>
-                                <td><s:select path="pubcomp.id" itemValue="id" itemLabel="name" items="${listPubcomp}" size="55em"/></td>
+                                <td><s:select path="pubcomp.id" itemValue="id" itemLabel="name" items="${listPubcomp}"/></td>
                             </div
                         </tr>
                         <tr>
                             <div class="campo">
                                 <td><label for="relyear">Release Year: </label></td>
-                                <td><s:input path="relyear"/> </td>
+                                <td><s:input path="relyear" size="10"/> </td>
                             </div
                         </tr>
                     </table>   

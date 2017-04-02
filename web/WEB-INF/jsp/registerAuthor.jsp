@@ -70,7 +70,7 @@
                         <tr>
                             <div class="campo">
                                 <td><label for="name">Name: </label></td>
-                                <td><s:input path="name" size="55em"/> </td>
+                                <td><s:input path="name" size="45"/> </td>
                             </div>
                         </tr>     
                     </table>
