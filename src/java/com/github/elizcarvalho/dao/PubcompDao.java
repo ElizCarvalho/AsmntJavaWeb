@@ -38,11 +38,12 @@ public class PubcompDao implements IDao{
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Object object) {
         
+        Pubcomp pubComp = (Pubcomp)object;
         try{
             em.getTransaction().begin();
-            Pubcomp pubCom = em.find(Pubcomp.class, id);
+            Pubcomp pubCom = em.find(Pubcomp.class, pubComp.getId());
             em.remove(pubCom);
             em.getTransaction().commit();
         
@@ -87,6 +88,7 @@ public class PubcompDao implements IDao{
 
     @Override
     public boolean existOne(Object object) {
+        
         Pubcomp pubComp = (Pubcomp)object;
         //checa se o autor ja foi cadastrado        
         boolean pubCompFound = false;

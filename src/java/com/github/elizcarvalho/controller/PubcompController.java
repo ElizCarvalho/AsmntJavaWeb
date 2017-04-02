@@ -45,13 +45,11 @@ public class PubcompController {
         return "listPubcomp";   
     }
     
-    @RequestMapping(value = "/deletePubcomp.htm", method = RequestMethod.GET)
-    public String deleteAuthor(HttpServletRequest request, @RequestParam("id") String id){
+    @RequestMapping(value = "/deletePubcomp.htm")
+    public String deletePubcomp(Pubcomp pubcomp){
         PubcompDao pdao = new PubcompDao();
-        pdao.delete(Integer.parseInt(id));
-        List<Object> list = pdao.list();
-        request.setAttribute("listPubcomp", list);
-        return "listPubcomp"; 
+        pdao.delete(pubcomp);
+        return "redirect:listPubcomp.htm"; 
     }
     
     @RequestMapping(value = "/listPubcomp.htm", method = RequestMethod.GET)

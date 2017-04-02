@@ -14,7 +14,7 @@ import java.util.List;
 public interface IDao {
     
     public void register(Object object);
-    public void delete(int id);
+    public void delete(Object object);
     public List<Object> list();
     public void update(int id);
     public boolean existOne(Object object);

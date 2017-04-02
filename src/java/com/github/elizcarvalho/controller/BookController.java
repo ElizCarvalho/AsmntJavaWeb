@@ -11,14 +11,12 @@ import com.github.elizcarvalho.dao.PubcompDao;
 import com.github.elizcarvalho.entity.Author;
 import com.github.elizcarvalho.entity.Book;
 import com.github.elizcarvalho.entity.Pubcomp;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -54,14 +52,11 @@ public class BookController {
         
     }
     
-    @RequestMapping(value = "/deleteBook.htm", method = RequestMethod.GET)
-    public String deleteBook(HttpServletRequest request, @RequestParam("id") String id){
+    @RequestMapping(value = "/deleteBook.htm")
+    public String deleteBook(Book book){
         BookDao bdao = new BookDao();
-        bdao.delete(Integer.parseInt(id));
-        List<Object> list = bdao.list();
-        request.setAttribute("listBook", list);
-        return "listBook";
-        
+        bdao.delete(book);
+        return "redirect:listBook.htm"; 
     }
     
     @RequestMapping(value = "/listBook.htm", method = RequestMethod.GET)

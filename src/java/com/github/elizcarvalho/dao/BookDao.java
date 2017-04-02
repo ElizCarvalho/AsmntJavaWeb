@@ -39,10 +39,12 @@ public class BookDao implements IDao{
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Object object) {
+        
+        Book book = (Book)object;
         try{
             em.getTransaction().begin();
-            Book book = em.find(Book.class, id);
+            book = em.find(Book.class, book.getId());
             em.remove(book);
             em.getTransaction().commit();
         

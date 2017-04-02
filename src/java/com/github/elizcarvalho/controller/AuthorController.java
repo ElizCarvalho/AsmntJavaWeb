@@ -49,13 +49,11 @@ public class AuthorController {
         return "listAuthor";   
     }
     
-    @RequestMapping(value = "/deleteAuthor.htm", method = RequestMethod.GET)
-    public String deleteAuthor(HttpServletRequest request, @RequestParam("id") String id){
+    @RequestMapping(value = "/deleteAuthor.htm")
+    public String deleteAuthor(Author author){
         AuthorDao adao = new AuthorDao();
-        adao.delete(Integer.parseInt(id));
-        List<Object> list = adao.list();
-        request.setAttribute("listAuthor", list);
-        return "listAuthor"; 
+        adao.delete(author);
+        return "redirect:listAuthor.htm"; 
     }
     
     @RequestMapping(value = "/listAuthor.htm", method = RequestMethod.GET)

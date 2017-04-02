@@ -36,13 +36,13 @@ public class AuthorDao implements IDao{
         }
     }
 
-    
     @Override
-    public void delete(int id) {
+    public void delete(Object object) {
         
+        Author author = (Author)object;
         try{
             em.getTransaction().begin();
-            Author author = em.find(Author.class, id);
+            author = em.find(Author.class, author.getId());
             em.remove(author);
             em.getTransaction().commit();
         } catch(Exception e){
@@ -50,7 +50,6 @@ public class AuthorDao implements IDao{
             em.getTransaction().rollback();
         }  
     }
-
     
     @Override
     public List<Object> list() {
