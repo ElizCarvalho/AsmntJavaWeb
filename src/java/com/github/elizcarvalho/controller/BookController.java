@@ -45,8 +45,15 @@ public class BookController {
     
     @RequestMapping(value="/showBook.htm")
     public String showBook(int id, Model model){
+        Book book = new Book();
         BookDao bdao = new BookDao();
-        model.addAttribute("author", bdao.searchForId(id));
+        book.setAuthor(new Author());
+        book.setPubcomp(new Pubcomp());
+        AuthorDao adao = new AuthorDao();
+        PubcompDao pdao = new PubcompDao();
+        model.addAttribute("book", bdao.searchForId(id));
+        model.addAttribute("listAuthor", adao.list());
+        model.addAttribute("listPubcomp", pdao.list());
         return "updateBook";
     }
     
