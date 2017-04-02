@@ -70,20 +70,16 @@
                     <thead>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th></th>
+                        <th></th>
                     </thead>
                     <tbody>
                         <c:forEach items="${listPubcomp}" var="pubcomp" >
                             <tr>
                                 <td align="center">${pubcomp.id}</td>
                                 <td align="center">${pubcomp.name}</td>
-                                <td>
-                                    <form action=".htm" method="POST">
-                                        <input type="hidden" name=""/>
-                                    </form>
-                                </td>
-                                <td><a href="deletePubcomp?id=${pubcomp.id}">Delete</a></td>
+                                <td><a href="deletePubcomp.htm?id=${pubcomp.id}">Update</a></td>
+                                <td><a href="deletePubcomp.htm?id=${pubcomp.id}">Delete</a></td>
                             </tr>
                         </c:forEach>  
                     </tbody>            

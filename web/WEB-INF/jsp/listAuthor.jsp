@@ -70,19 +70,15 @@
                     <thead>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th></th>
+                        <th></th>
                     </thead>
                     <tbody>
                         <c:forEach items="${listAuthor}" var="author" >
                             <tr>
                                 <td align="center">${author.id}</td>
                                 <td align="center">${author.name}</td>
-                                <td>
-                                    <form action=".htm" method="POST">
-                                        <input type="hidden" name=""/>
-                                    </form>
-                                </td>
+                                <td><a href="deleteAuthor.htm?id=${author.id}">Update</a></td>
                                 <td><a href="deleteAuthor.htm?id=${author.id}">Delete</a></td>
                             </tr>
                         </c:forEach>  

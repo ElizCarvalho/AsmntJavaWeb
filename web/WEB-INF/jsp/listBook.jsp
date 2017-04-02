@@ -73,8 +73,8 @@
                         <th>Author</th>
                         <th>Publishing Company</th>
                         <th>Release Year</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th></th>
+                        <th></th>
                     </thead>
                     <tbody>
                         <c:forEach items="${listBook}" var="book" >
@@ -84,7 +84,7 @@
                             <td align="center">${book.author.name}</td>
                             <td align="center">${book.pubcomp.name}</td>
                             <td align="center">${book.relyear}</td>
-                            <td><a href="deleteBook.htm?id=${book.id}">Delete</a></td>
+                            <td><a href="deleteBook.htm?id=${book.id}">Update</a></td>
                             <td><a href="deleteBook.htm?id=${book.id}">Delete</a></td>
                         </tr>
                         </c:forEach>
