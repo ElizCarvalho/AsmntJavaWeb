@@ -27,7 +27,7 @@ public class Log {
     
     public void gravarLog(StackTraceElement[] mensagem){
         
-        String fileLog = "C:\\Users\\Eliz\\Documents\\NetBeansProjects\\AsmntJavaWeb\\src\\java\\com\\github\\elizcarvalho\\log.txt";
+        String fileLog = "C:\\Users\\Eliz\\Documents\\NetBeansProjects\\AsmntJavaWeb\\src\\java\\com\\github\\elizcarvalho\\log\\log.txt";
         
         try {
             FileWriter fw = new FileWriter(fileLog, true);
@@ -41,19 +41,4 @@ public class Log {
         }
     }
     
-        public void gravarLog(String mensagem){
-        
-        String fileLog = "C:\\Users\\Eliz\\Documents\\NetBeansProjects\\AsmntJavaWeb\\src\\java\\com\\github\\elizcarvalho\\log\\log.txt";
-        
-        try {
-            FileWriter fw = new FileWriter(fileLog, true);
-            try (BufferedWriter bw = new BufferedWriter(fw)) {
-                bw.newLine();
-                bw.write("["+date()+"]"+ mensagem);
-                bw.flush();
-            }
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-    }
 }
