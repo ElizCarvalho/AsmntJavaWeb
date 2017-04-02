@@ -25,11 +25,11 @@ public class PubcompDao implements IDao{
     @Override
     public void register(Object object) {
        try{
-            //so cadastra se o autor ainda nao existir no bd
+            //so cadastra se a editora ainda nao existir no bd
             if (!existOne(object)==true){
-                em.getTransaction().begin();
                 em.persist(object);
                 em.getTransaction().commit();
+                em.close();
             }
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
@@ -46,7 +46,7 @@ public class PubcompDao implements IDao{
             Pubcomp pubCom = em.find(Pubcomp.class, pubComp.getId());
             em.remove(pubCom);
             em.getTransaction().commit();
-        
+            em.close();
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
             em.getTransaction().rollback();
@@ -61,7 +61,7 @@ public class PubcompDao implements IDao{
         try{
             em.getTransaction().begin();
             allPubCom = em.createNamedQuery("Pubcomp.findAll").getResultList();
-        
+            em.close();
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
             em.getTransaction().rollback();
@@ -82,6 +82,7 @@ public class PubcompDao implements IDao{
             em.getTransaction().begin();
             em.merge(pubComp);
             em.getTransaction().commit();
+            em.close();
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
             em.getTransaction().rollback();
@@ -92,15 +93,14 @@ public class PubcompDao implements IDao{
     public boolean existOne(Object object) {
         
         Pubcomp pubComp = (Pubcomp)object;
-        //checa se o autor ja foi cadastrado        
+        //checa se a editora ja foi cadastrado        
         boolean pubCompFound = false;
         try {
             em.getTransaction().begin();
-            TypedQuery<Pubcomp> search = em.createNamedQuery("Pubcomp.findByName", Pubcomp.class)
+            TypedQuery<Pubcomp> search = em.createQuery("SELECT p FROM Pubcomp p WHERE p.name=?1", Pubcomp.class)
                     .setParameter(1, pubComp.getName());
             List<Pubcomp> list = search.getResultList();
-            System.out.println(list);
-            if (!list.isEmpty()){
+            if (list.isEmpty()==false){
                 pubCompFound = true;
             }
         } catch(Exception e){

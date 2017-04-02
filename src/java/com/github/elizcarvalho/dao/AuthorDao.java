@@ -26,7 +26,6 @@ public class AuthorDao implements IDao{
         try{
             //so cadastra se o autor ainda nao existir no bd
             if (!existOne(object)==true){
-                //em.getTransaction().begin();
                 em.persist(object);
                 em.getTransaction().commit();
                 em.close();
@@ -46,6 +45,7 @@ public class AuthorDao implements IDao{
             author = em.find(Author.class, author.getId());
             em.remove(author);
             em.getTransaction().commit();
+            em.close();
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
             em.getTransaction().rollback();
@@ -60,7 +60,6 @@ public class AuthorDao implements IDao{
             em.getTransaction().begin();
             allAuthor = em.createNamedQuery("Author.findAll").getResultList();
             em.close();
-        
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
             em.getTransaction().rollback();
