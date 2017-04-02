@@ -6,7 +6,7 @@
     <head>	      	
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="/recursos/css/main.css" rel="stylesheet">
-        <title>Library - Author Registration</title>
+        <title>Library - Author Update</title>
         <style>
             fieldset {
 		border: 0;
@@ -63,20 +63,20 @@
     <body> 
         <center>
             <fieldset>
-                <h2>Library - Author Registration</h2>
+                <h2>Library - Author Update: ${author.id} </h2>
                 <br/><br/>
-                <s:form method="post" modelAttribute="author" action="registerAuthor.htm">
+                <s:form method="post" modelAttribute="author"  action="updateAuthor.htm">
                     <table>
                         <tr>
                             <div class="campo">
-                                <td><label for="name">Id: </label></td>
-                                <td><s:input path="name" size="15" readonly="true" value="${param.idalt}"/> </td>
+                                <td><label for="id">Id: </label></td>
+                                <td><s:input path="id" size="15" readonly="true" value="${author.id}"/></td>
                             </div>
                         </tr> 
                         <tr>
                             <div class="campo">
                                 <td><label for="name">Name: </label></td>
-                                <td><s:input path="name" size="45" value="${param.namealt}"/> </td>
+                                <td><s:input path="name" size="45" value="${author.name}"/></td>
                             </div>
                         </tr>     
                     </table>

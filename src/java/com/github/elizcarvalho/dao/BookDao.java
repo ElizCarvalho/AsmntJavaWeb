@@ -70,7 +70,7 @@ public class BookDao implements IDao{
     }
 
     @Override
-    public void update(int id) {
+    public void update(Object object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

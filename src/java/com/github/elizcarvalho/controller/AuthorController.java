@@ -35,18 +35,18 @@ public class AuthorController {
         return "sucessoAuthor";
     }
     
-    @RequestMapping(value="/startUpdateAuthor.htm", method = RequestMethod.GET )
-    public String startUpdateAuthor(@ModelAttribute("author") Author author, @RequestParam("id") String id){
-        return "registerAuthor";
+    @RequestMapping(value="/showAuthor.htm")
+    public String showAuthor(int id, Model model){
+        AuthorDao adao = new AuthorDao();
+        model.addAttribute("author", adao.searchForId(id));
+        return "updateAuthor";
     }
     
-    @RequestMapping(value = "/updateAuthor.htm", method = RequestMethod.GET)
-    public String updateBook(HttpServletRequest request, @RequestParam("id") String id){
+    @RequestMapping(value = "/updateAuthor.htm")
+    public String updateBook(Author author){
         AuthorDao adao = new AuthorDao();
-        //adao.update(author);
-        List<Object> list = adao.list();
-        request.setAttribute("listAuthor", list);
-        return "listAuthor";   
+        adao.update(author);
+        return "redirect:listAuthor.htm";   
     }
     
     @RequestMapping(value = "/deleteAuthor.htm")

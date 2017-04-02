@@ -71,19 +71,8 @@ public class PubcompDao implements IDao{
     }
 
     @Override
-    public void update(int id) {
-        
-       try{
-            em.getTransaction().begin();
-            Pubcomp pubCom = em.find(Pubcomp.class, id);
-            em.remove(pubCom);
-            em.getTransaction().commit();
-        
-        } catch(Exception e){
-            log.gravarLog(e.getStackTrace());
-            em.getTransaction().rollback();
-        }
-       
+    public void update(Object object) {
+    
     }
 
     @Override

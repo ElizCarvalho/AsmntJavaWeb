@@ -65,11 +65,23 @@ public class AuthorDao implements IDao{
         }
         return allAuthor;
     }
+    
+    public Author searchForId(int id) {   
+       return em.find(Author.class, id);
+    }
 
     
     @Override
-    public void update(int id) {
-         //To change body of generated methods, choose Tools | Templates.
+    public void update(Object object) {
+        Author author = (Author)object;
+        try{
+            em.getTransaction().begin();
+            em.merge(author);
+            em.getTransaction().commit();
+        } catch(Exception e){
+            log.gravarLog(e.getStackTrace());
+            em.getTransaction().rollback();
+        } 
     }
 
     @Override
