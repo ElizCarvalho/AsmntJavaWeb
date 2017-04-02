@@ -20,7 +20,6 @@ import javax.persistence.TypedQuery;
 public class BookDao implements IDao{
     
     Log log = new Log();
-    
     private EntityManager em = Factory.getEntityManager();
 
     @Override
@@ -28,9 +27,9 @@ public class BookDao implements IDao{
        try{
             //so cadastra se o livro ainda nao existir no bd
             if (!existOne(object)==true){
-                em.getTransaction().begin();
                 em.persist(object);
                 em.getTransaction().commit();
+                em.close();
             }
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
@@ -44,10 +43,10 @@ public class BookDao implements IDao{
         Book book = (Book)object;
         try{
             em.getTransaction().begin();
-            book = em.find(Book.class, book);
+            book = em.find(Book.class, book.getId());
             em.remove(book);
             em.getTransaction().commit();
-        
+            em.close();
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
             em.getTransaction().rollback();
@@ -61,7 +60,7 @@ public class BookDao implements IDao{
         try{
             em.getTransaction().begin();
             allBook = em.createNamedQuery("Book.findAll").getResultList();
-        
+            em.close();
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
             em.getTransaction().rollback();
@@ -81,6 +80,7 @@ public class BookDao implements IDao{
             em.getTransaction().begin();
             em.merge(book);
             em.getTransaction().commit();
+            em.close();
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
             em.getTransaction().rollback();
@@ -95,10 +95,12 @@ public class BookDao implements IDao{
         boolean bookFound = false;
         try {
             em.getTransaction().begin();
-            TypedQuery<Book> search = em.createNamedQuery("Book.findByTitle", Book.class)
-                    .setParameter(1, book.getTitle());
+            TypedQuery<Book> search = em.createQuery("SELECT b FROM Book b WHERE b.title=?1 AND b.author=?2 AND b.pubcomp=?3", Book.class)
+                    .setParameter(1, book.getTitle())
+                    .setParameter(2, book.getAuthor())
+                    .setParameter(3, book.getPubcomp());
             List<Book> list = search.getResultList();
-            if (!list.isEmpty()){
+            if (list.isEmpty()==false){
                 bookFound = true;
             }
         } catch(Exception e){
