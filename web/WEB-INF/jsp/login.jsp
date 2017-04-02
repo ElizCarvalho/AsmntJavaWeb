@@ -68,7 +68,6 @@
                 <div class="campo">
                     <label for="text"><c:out value="${message}"/></label>
                 </div>
-        
                 <s:form action="singIn.htm" modelAttribute="user" method="POST">
                     <table>
                         <tr>
@@ -89,7 +88,6 @@
                 </s:form>
                 <br/><br/>
                 <a href="startRegisterUser.htm"> -- User Register -- </a>
-        
             </fieldset>
         </center>
     </body>

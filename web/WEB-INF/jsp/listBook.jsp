@@ -60,41 +60,38 @@
 	</style>
     </head>
     <body>
-        <h1>Books List</h1>
-        <br/>
-        <a href="index.htm"> << Back </a>
-        <br/><br/>
-        <table>
-            <thead>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Publishing Company</th>
-                <th>Release Year</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </thead>
-            <tbody>
+        <center>
+            <fieldset>
+                <h2>Library - Book List</h2>
+                <br/>
+                <a href="index.htm"> << Back </a>
+                <br/><br/>
+                <table>
+                    <thead>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Publishing Company</th>
+                        <th>Release Year</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${listBook}" var="book" >
+                        <tr>
+                            <td align="center">${book.id}</td>
+                            <td align="center">${book.title}</td>
+                            <td align="center">${book.author.name}</td>
+                            <td align="center">${book.pubcomp.name}</td>
+                            <td align="center">${book.relyear}</td>
+                            <td><a href="deleteBook.htm?id=${book.id}">Delete</a></td>
+                            <td><a href="deleteBook.htm?id=${book.id}">Delete</a></td>
+                        </tr>
+                        </c:forEach>
                 
-                <c:forEach items="${listBook}" var="book" >
-                    <tr>
-                        <td>${book.idbook}</td>
-                        <td>${book.title}</td>
-                        <td>${book.author}</td>
-                        <td>${book.publishingcomp}</td>
-                        <td>${book.releaseyear}</td>
-                        <td>
-                            <form action=".htm" method="POST">
-                                <input type="hidden" name=""/>
-                            </form>
-                        </td>
-                        <td><a href="deleteBook?id=${book.idbook}">Delete</a></td>
-
-                    </tr>
-                </c:forEach>
-                
-            </tbody>            
-        </table>
-        
+                    </tbody>            
+                </table>
+            </fieldset>
+        </center>
     </body> 
 </html>

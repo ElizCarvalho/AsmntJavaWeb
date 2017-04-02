@@ -60,45 +60,37 @@
             }
 	</style>
     </head>
-
     <body> 
         <center>
-        <fieldset>
-            <h2>User Registration</h2>
-
-            <s:form method="post" modelAttribute="user" action="registerUser.htm">
-            
-                <table>
-                    <tr>
-                        <div class="campo">
-                            <td><label for="username">Username: </label></td>
-                            <td><s:input path="username" size="35em"/> </td>
-                        </div>
-                    </tr>
-                    <tr>
-                        <div class="campo">
-                            <td><label for="password">Password: </label></td>
-                            <td><s:password path="password" size="35em"/></td>
-                        </div>
-                    </tr>
-                    <tr>
-                        <div class="campo">
-                            <td><label for="email">Email: </label></td>
-                            <td><s:input path="email" size="35em"/></td>
-                        </div
-                    </tr>
-                    
-                </table>
-                    
-                <button class="botao submit" type="submit" name="submit">Register</button>
-                <button class="botao submit" type="reset" name="reset">Reset</button>
-                    
-            </s:form>
-
-            <br/>
-            <a href="login.htm"> -- Back --</a>
-        </fieldset>
-    </center>
+            <fieldset>
+                <h2>Library - User Registration</h2>
+                <s:form method="post" modelAttribute="user" action="registerUser.htm">
+                    <table>
+                        <tr>
+                            <div class="campo">
+                                <td><label for="username">Username: </label></td>
+                                <td><s:input path="username" size="35em"/> </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="campo">
+                                <td><label for="password">Password: </label></td>
+                                <td><s:password path="password" size="35em"/></td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="campo">
+                                <td><label for="email">Email: </label></td>
+                                <td><s:input path="email" size="35em"/></td>
+                            </div
+                        </tr>
+                    </table> 
+                    <button class="botao submit" type="submit" name="submit">Register</button>
+                    <button class="botao submit" type="reset" name="reset">Reset</button>    
+                </s:form>
+                <br/>
+                <a href="login.htm"> -- Back --</a>
+            </fieldset>
+        </center>
     </body>
-
 </html>

@@ -28,8 +28,8 @@ public class BookController {
     
     @RequestMapping(value="/startRegisterBook.htm", method = RequestMethod.GET )
     public String startRegisterBook(@ModelAttribute("book") Book book, HttpServletRequest req){
-        book.setAuthorId(new Author());
-        book.setPublishingcompId(new Pubcomp());
+        book.setAuthor(new Author());
+        book.setPubcomp(new Pubcomp());
         AuthorDao adao = new AuthorDao();
         PubcompDao pdao = new PubcompDao();
         req.setAttribute("listAuthor", adao.list());

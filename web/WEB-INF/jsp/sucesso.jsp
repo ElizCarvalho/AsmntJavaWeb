@@ -62,7 +62,7 @@
     <body>
         <center>
             <fieldset>
-                <h1>Great</h1>
+                <h1>Library - Great</h1>
                 </br>
                 <div class="campo">
                     <label for="text"><c:out value="The user ${user.username} with e-mail ${user.email} was successfully registered!"/></label>

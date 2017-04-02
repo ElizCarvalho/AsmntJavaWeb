@@ -61,33 +61,34 @@
     </head>
     <body>
         <center>
-        <fieldset>
-        <h2>Author List</h2>
-        <br/>
-        <a href="index.htm"> << Back </a>
-        <br/><br/>
-        <table>
-            <thead>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </thead>
-            <tbody>
-                <c:forEach items="${listAuthor}" var="author" >
-                    <tr>
-                        <td>${author.id}</td>
-                        <td>${author.name}</td>
-                        <td>
-                            <form action=".htm" method="POST">
-                                <input type="hidden" name=""/>
-                            </form>
-                        </td>
-                        <td><a href="deleteAuthor?id=${author.id}">Delete</a></td>
-                    </tr>
-                </c:forEach>  
-            </tbody>            
-        </table>
-        </fieldset>
+            <fieldset>
+                <h2>Library - Author List</h2>
+                <br/>
+                <a href="index.htm"> << Back </a>
+                <br/><br/>
+                <table>
+                    <thead>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${listAuthor}" var="author" >
+                            <tr>
+                                <td align="center">${author.id}</td>
+                                <td align="center">${author.name}</td>
+                                <td>
+                                    <form action=".htm" method="POST">
+                                        <input type="hidden" name=""/>
+                                    </form>
+                                </td>
+                                <td><a href="deleteAuthor.htm?id=${author.id}">Delete</a></td>
+                            </tr>
+                        </c:forEach>  
+                    </tbody>            
+                </table>
+            </fieldset>
+        </center>
     </body> 
 </html>

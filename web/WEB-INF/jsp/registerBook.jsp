@@ -60,51 +60,44 @@
             }  
 	</style>
     </head>
-
     <body> 
         <center>
-        <fieldset>
-            <h2>Library - Book Registration</h2>
-
-            <s:form method="POST" modelAttribute="book" action="registerBook.htm">
-            
-                <table>
-                    <tr>
-                        <div class="campo">
-                            <td><label for="title">Title: </label></td>
-                            <td><s:input path="title" size="55em"/> </td>
-                        </div>
-                    </tr>
-                    <tr>
-                        <div class="campo">
-                            <td><label for="author">Author: </label></td>
-                            <td><s:select path="authorId.id" itemValue="id" itemLabel="name" items="${listAuthor}" size="55em"/></td>
-                        </div>
-                    </tr>
-                    <tr>
-                        <div class="campo">
-                            <td><label for="pubcomp">Publishing Company: </label></td>
-                            <td><s:select path="publishingcompId.id" itemValue="id" itemLabel="name" items="${listPcomp}" size="55em"/></td>
-                        </div
-                    </tr>
-                    <tr>
-                        <div class="campo">
-                            <td><label for="releaseyear">Release Year: </label></td>
-                            <td><s:input path="releaseyear" size="35em"/></td>
-                        </div
-                    </tr>
-                    
-                </table>
-                    
-                <button class="botao submit" type="submit" name="submit">Register</button>
-                <button class="botao submit" type="reset" name="reset">Reset</button>
-                    
-            </s:form>
-
-            <br/>
-            <a href="index.htm"> -- Index --</a>
-        </fieldset>
-    </center>
+            <fieldset>
+                <h2>Library - Book Registration</h2>
+                <br/>
+                <s:form method="POST" modelAttribute="book" action="registerBook.htm">
+                    <table>
+                        <tr>
+                            <div class="campo">
+                                <td><label for="title">Title: </label></td>
+                                <td><s:input path="title" size="55em"/> </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="campo">
+                                <td><label for="author">Author: </label></td>
+                                <td><s:select path="author.id" itemValue="id" itemLabel="name" items="${listAuthor}" size="55em"/></td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="campo">
+                                <td><label for="pubcomp">Publishing Company: </label></td>
+                                <td><s:select path="pubcomp.id" itemValue="id" itemLabel="name" items="${listPubcomp}" size="55em"/></td>
+                            </div
+                        </tr>
+                        <tr>
+                            <div class="campo">
+                                <td><label for="relyear">Release Year: </label></td>
+                                <td><s:input path="relyear"/> </td>
+                            </div
+                        </tr>
+                    </table>   
+                    <button class="botao submit" type="submit" name="submit">Register</button>
+                    <button class="botao submit" type="reset" name="reset">Reset</button>    
+                </s:form>
+                <br/>
+                <a href="index.htm"> -- Index --</a>
+            </fieldset>
+        </center>
     </body>
-
 </html>

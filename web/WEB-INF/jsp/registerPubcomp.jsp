@@ -63,27 +63,25 @@
 
     <body> 
         <center>
-        <fieldset>
-            <h2>Library - Publishing Company Registration</h2>
-            <br/><br/>
-            <s:form method="post" modelAttribute="pubcomp" action="registerPubcomp.htm">
-                <table>
-                    <tr>
-                        <div class="campo">
-                            <td><label for="name">Name: </label></td>
-                            <td><s:input path="name" size="55em"/> </td>
-                        </div>
-                    </tr>     
-                </table>
+            <fieldset>
+                <h2>Library - Publishing Company Registration</h2>
+                <br/><br/>
+                <s:form method="post" modelAttribute="pubcomp" action="registerPubcomp.htm">
+                    <table>
+                        <tr>
+                            <div class="campo">
+                                <td><label for="name">Name: </label></td>
+                                <td><s:input path="name" size="55em"/> </td>
+                            </div>
+                        </tr>     
+                    </table>
+                    <br/>
+                    <button class="botao submit" type="submit" name="submit">Register</button>
+                    <button class="botao submit" type="reset" name="reset">Reset</button>     
+                </s:form>
                 <br/>
-                <button class="botao submit" type="submit" name="submit">Register</button>
-                <button class="botao submit" type="reset" name="reset">Reset</button>     
-            </s:form>
-
-            <br/>
-            <a href="index.htm"> -- Index --</a>
-        </fieldset>
-    </center>
+                <a href="index.htm"> -- Index --</a>
+            </fieldset>
+        </center>
     </body>
-
 </html>
