@@ -26,9 +26,10 @@ public class AuthorDao implements IDao{
         try{
             //so cadastra se o autor ainda nao existir no bd
             if (!existOne(object)==true){
-                em.getTransaction().begin();
+                //em.getTransaction().begin();
                 em.persist(object);
                 em.getTransaction().commit();
+                em.close();
             }
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
@@ -58,6 +59,7 @@ public class AuthorDao implements IDao{
         try{
             em.getTransaction().begin();
             allAuthor = em.createNamedQuery("Author.findAll").getResultList();
+            em.close();
         
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
@@ -79,6 +81,7 @@ public class AuthorDao implements IDao{
             em.getTransaction().begin();
             em.merge(author);
             em.getTransaction().commit();
+            em.close();
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
             em.getTransaction().rollback();
@@ -93,11 +96,10 @@ public class AuthorDao implements IDao{
         boolean authorFound = false;
         try {
             em.getTransaction().begin();
-            TypedQuery<Author> search = em.createNamedQuery("Author.findByName", Author.class)
+            TypedQuery<Author> search = em.createQuery("SELECT a FROM Author a WHERE a.name=?1", Author.class)
                     .setParameter(1, author.getName());
             List<Author> list = search.getResultList();
-            System.out.println(list);
-            if (!list.isEmpty()){
+            if (list.isEmpty()==false){
                 authorFound = true;
             }
         } catch(Exception e){
