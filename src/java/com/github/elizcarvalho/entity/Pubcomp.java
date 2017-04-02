@@ -6,29 +6,38 @@
 package com.github.elizcarvalho.entity;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Eliz
  */
 @NamedQueries({
-    @NamedQuery(name = "PublishingComp.findAll", query = "SELECT p FROM PublishingComp p")
-    , @NamedQuery(name = "PublishingComp.findById", query = "SELECT p FROM PublishingComp p WHERE p.id = :id")
-    , @NamedQuery(name = "PublishingComp.findByName", query = "SELECT p FROM PublishingComp p WHERE p.name = :name")})
+    @NamedQuery(name = "Pubcomp.findAll", query = "SELECT p FROM Pubcomp p")
+    , @NamedQuery(name = "Pubcomp.findById", query = "SELECT p FROM Pubcomp p WHERE p.id = :id")
+    , @NamedQuery(name = "Pubcomp.findByName", query = "SELECT p FROM Pubcomp p WHERE p.name = :name")})
 
 @Entity
-public class PublishingComp implements Serializable {
+@Table(name = "pubcomp")
+public class Pubcomp implements Serializable {
     
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @Column(name = "name")
     private String name;
+    @OneToMany(mappedBy = "publishingcompId")
+    private List<Book> bookList;
 
     public int getId() {
         return id;
@@ -46,4 +55,12 @@ public class PublishingComp implements Serializable {
         this.name = name.toUpperCase().trim();
     }
     
+    @XmlTransient
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
+    }
 }

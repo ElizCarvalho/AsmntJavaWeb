@@ -61,14 +61,17 @@
     </head>
 
     <body>
-        <h2> Menu </h2>
-        <hr/>
-        <ul>
-            <li><a href="startRegisterBook.htm">Register Book</a></li>
-            <li><a href="listBook.htm">Books List</a></li>
-            <li><a href="startRegisterAuthor.htm">Register Author</a></li>
-            <li><a href="listAuthor.htm">Author List</a></li>
-        </ul>
-
+        <center>
+            <fieldset>
+                <h2> MENU </h2>
+                <br/><br/>
+                <a href="startRegisterBook.htm">Register Book</a><br/>
+                <a href="listBook.htm">Books List</a><br/><br/>
+                <a href="startRegisterAuthor.htm">Register Author</a><br/>
+                <a href="listAuthor.htm">Author List</a><br/><br/>
+                <a href="startRegisterPubcomp.htm">Register Publishing Company</a><br/>
+                <a href="listPubcomp.htm">Publishing Company List</a><br/>
+            </fieldset>
+        </center>
     </body>
 </html>

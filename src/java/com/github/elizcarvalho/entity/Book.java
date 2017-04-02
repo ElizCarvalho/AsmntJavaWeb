@@ -6,13 +6,16 @@
 package com.github.elizcarvalho.entity;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,16 +29,24 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Book.findByTitle", query = "SELECT b FROM Book b WHERE b.title = :title")})
 
 @Entity
+@Table(name = "book")
 public class Book implements Serializable {
-    
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
     private int id;
+    @Column(name = "title")
     private String title;
-    private int releaseYear;
-    @OneToOne
-    private PublishingComp publishingComp;
-    @OneToOne
-    private Author author;
+    @Column(name = "releaseyear")
+    private int releaseyear;
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    @ManyToOne
+    private Author authorId;
+    @JoinColumn(name = "publishingcomp", referencedColumnName = "id")
+    @ManyToOne
+    private Pubcomp publishingcompId;
 
     public int getId() {
         return id;
@@ -54,27 +65,27 @@ public class Book implements Serializable {
     }
 
     public int getReleaseYear() {
-        return releaseYear;
+        return releaseyear;
     }
 
     public void setReleaseYear(int releaseYear) {
-        this.releaseYear = releaseYear;
+        this.releaseyear = releaseYear;
     }
 
-    public PublishingComp getPublishingComp() {
-        return publishingComp;
+    public Author getAuthorId() {
+        return authorId;
     }
 
-    public void setPublishingComp(PublishingComp publishingComp) {
-        this.publishingComp = publishingComp;
+    public void setAuthorId(Author authorId) {
+        this.authorId = authorId;
     }
 
-    public Author getAuthor() {
-        return author;
+    public Pubcomp getPublishingcompId() {
+        return publishingcompId;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setPublishingcompId(Pubcomp publishingcompId) {
+        this.publishingcompId = publishingcompId;
     }
         
 }

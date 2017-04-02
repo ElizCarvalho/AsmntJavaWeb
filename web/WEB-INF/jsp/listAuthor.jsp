@@ -60,11 +60,13 @@
 	</style>
     </head>
     <body>
-        <h1>Books Author</h1>
-        <hr/>
-        <a href="index.htm"> << Back </a>
+        <center>
+        <fieldset>
+        <h2>Author List</h2>
         <br/>
-        <table border="1">
+        <a href="index.htm"> << Back </a>
+        <br/><br/>
+        <table>
             <thead>
                 <th>Id</th>
                 <th>Name</th>
@@ -86,6 +88,6 @@
                 </c:forEach>  
             </tbody>            
         </table>
-        
+        </fieldset>
     </body> 
 </html>

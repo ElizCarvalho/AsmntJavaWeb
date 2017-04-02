@@ -5,7 +5,7 @@
  */
 package com.github.elizcarvalho.dao;
 
-import com.github.elizcarvalho.entity.PublishingComp;
+import com.github.elizcarvalho.entity.Pubcomp;
 import com.github.elizcarvalho.factory.Factory;
 import com.github.elizcarvalho.log.Log;
 import java.util.List;
@@ -16,7 +16,7 @@ import javax.persistence.TypedQuery;
  *
  * @author Eliz
  */
-public class PublishingCompDao implements IDao{
+public class PubcompDao implements IDao{
 
     Log log = new Log();
     
@@ -42,7 +42,7 @@ public class PublishingCompDao implements IDao{
         
         try{
             em.getTransaction().begin();
-            PublishingComp pubCom = em.find(PublishingComp.class, id);
+            Pubcomp pubCom = em.find(Pubcomp.class, id);
             em.remove(pubCom);
             em.getTransaction().commit();
         
@@ -59,7 +59,7 @@ public class PublishingCompDao implements IDao{
         List<Object> allPubCom = null;
         try{
             em.getTransaction().begin();
-            allPubCom = em.createNamedQuery("PublishingComp.findAll").getResultList();
+            allPubCom = em.createNamedQuery("Pubcomp.findAll").getResultList();
         
         } catch(Exception e){
             log.gravarLog(e.getStackTrace());
@@ -74,7 +74,7 @@ public class PublishingCompDao implements IDao{
         
        try{
             em.getTransaction().begin();
-            PublishingComp pubCom = em.find(PublishingComp.class, id);
+            Pubcomp pubCom = em.find(Pubcomp.class, id);
             em.remove(pubCom);
             em.getTransaction().commit();
         
@@ -87,14 +87,14 @@ public class PublishingCompDao implements IDao{
 
     @Override
     public boolean existOne(Object object) {
-        PublishingComp pubComp = (PublishingComp)object;
+        Pubcomp pubComp = (Pubcomp)object;
         //checa se o autor ja foi cadastrado        
         boolean pubCompFound = false;
         try {
             em.getTransaction().begin();
-            TypedQuery<PublishingComp> search = em.createNamedQuery("findByName", PublishingComp.class)
+            TypedQuery<Pubcomp> search = em.createNamedQuery("Pubcomp.findByName", Pubcomp.class)
                     .setParameter(1, pubComp.getName());
-            List<PublishingComp> list = search.getResultList();
+            List<Pubcomp> list = search.getResultList();
             System.out.println(list);
             if (!list.isEmpty()){
                 pubCompFound = true;

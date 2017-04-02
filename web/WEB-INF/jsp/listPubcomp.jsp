@@ -5,8 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="<c:url value="/recursos/css/main.css" />" rel="stylesheet">
-        <title>Library - Book List</title>
-        <style>  
+        <title>Library - Author List</title>
+        <style>
             fieldset {
 		border: 0;
             }
@@ -60,41 +60,34 @@
 	</style>
     </head>
     <body>
-        <h1>Books List</h1>
+        <center>
+        <fieldset>
+        <h2>Author List</h2>
         <br/>
         <a href="index.htm"> << Back </a>
         <br/><br/>
         <table>
             <thead>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Publishing Company</th>
-                <th>Release Year</th>
+                <th>Name</th>
                 <th>Update</th>
                 <th>Delete</th>
             </thead>
             <tbody>
-                
-                <c:forEach items="${listBook}" var="book" >
+                <c:forEach items="${listPubcomp}" var="pubcomp" >
                     <tr>
-                        <td>${book.idbook}</td>
-                        <td>${book.title}</td>
-                        <td>${book.author}</td>
-                        <td>${book.publishingcomp}</td>
-                        <td>${book.releaseyear}</td>
+                        <td>${pubcomp.id}</td>
+                        <td>${pubcomp.name}</td>
                         <td>
                             <form action=".htm" method="POST">
                                 <input type="hidden" name=""/>
                             </form>
                         </td>
-                        <td><a href="deleteBook?id=${book.idbook}">Delete</a></td>
-
+                        <td><a href="deletePubcomp?id=${pubcomp.id}">Delete</a></td>
                     </tr>
-                </c:forEach>
-                
+                </c:forEach>  
             </tbody>            
         </table>
-        
+        </fieldset>
     </body> 
 </html>

@@ -6,7 +6,7 @@
     <head>	      	
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="/recursos/css/main.css" rel="stylesheet">
-        <title>Library - Author Registration</title>
+        <title>Library - Publishing Company Registration</title>
         <style>
             fieldset {
 		border: 0;
@@ -64,9 +64,9 @@
     <body> 
         <center>
         <fieldset>
-            <h2>Library - Author Registration</h2>
+            <h2>Library - Publishing Company Registration</h2>
             <br/><br/>
-            <s:form method="post" modelAttribute="author" action="registerAuthor.htm">
+            <s:form method="post" modelAttribute="pubcomp" action="registerPubcomp.htm">
                 <table>
                     <tr>
                         <div class="campo">

@@ -81,7 +81,7 @@ public class AuthorDao implements IDao{
         boolean authorFound = false;
         try {
             em.getTransaction().begin();
-            TypedQuery<Author> search = em.createNamedQuery("findByName", Author.class)
+            TypedQuery<Author> search = em.createNamedQuery("Author.findByName", Author.class)
                     .setParameter(1, author.getName());
             List<Author> list = search.getResultList();
             System.out.println(list);

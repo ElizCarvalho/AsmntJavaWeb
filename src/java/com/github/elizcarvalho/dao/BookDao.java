@@ -80,7 +80,7 @@ public class BookDao implements IDao{
         boolean bookFound = false;
         try {
             em.getTransaction().begin();
-            TypedQuery<Book> search = em.createNamedQuery("findByTitle", Book.class)
+            TypedQuery<Book> search = em.createNamedQuery("Book.findByTitle", Book.class)
                     .setParameter(1, book.getTitle());
             List<Book> list = search.getResultList();
             System.out.println(list);

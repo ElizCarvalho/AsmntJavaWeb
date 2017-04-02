@@ -4,6 +4,8 @@ body {
 
 h1, h2 {
     margin-bottom: 1rem;
+    font-family: sans-serif;
+    color:#666
 }
 
 body, input, select, password, button {

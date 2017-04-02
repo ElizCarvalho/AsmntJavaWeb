@@ -22,7 +22,7 @@ public class Factory {
     //responsavel por criar entitymanager
     public static EntityManager getEntityManager(){
         if(emf==null){
-            emf = Persistence.createEntityManagerFactory("AsmntJavaWebPU");
+            emf = Persistence.createEntityManagerFactory("AJavaWebPU");
         }
         return emf.createEntityManager();
     }
