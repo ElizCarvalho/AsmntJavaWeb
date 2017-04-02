@@ -98,7 +98,6 @@ public class BookDao implements IDao{
             TypedQuery<Book> search = em.createNamedQuery("Book.findByTitle", Book.class)
                     .setParameter(1, book.getTitle());
             List<Book> list = search.getResultList();
-            System.out.println(list);
             if (!list.isEmpty()){
                 bookFound = true;
             }
