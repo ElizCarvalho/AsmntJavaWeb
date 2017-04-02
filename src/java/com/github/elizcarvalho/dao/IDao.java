@@ -18,4 +18,5 @@ public interface IDao {
     public List<Object> list();
     public void update(Object object);
     public boolean existOne(Object object);
+    public Object searchForId(int id);
 }

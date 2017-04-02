@@ -44,7 +44,7 @@ public class BookDao implements IDao{
         Book book = (Book)object;
         try{
             em.getTransaction().begin();
-            book = em.find(Book.class, book.getId());
+            book = em.find(Book.class, book);
             em.remove(book);
             em.getTransaction().commit();
         
@@ -70,8 +70,21 @@ public class BookDao implements IDao{
     }
 
     @Override
+    public Object searchForId(int id) {   
+       return em.find(Book.class, id);
+    }
+    
+    @Override
     public void update(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Book book = (Book)object;
+        try{
+            em.getTransaction().begin();
+            em.merge(book);
+            em.getTransaction().commit();
+        } catch(Exception e){
+            log.gravarLog(e.getStackTrace());
+            em.getTransaction().rollback();
+        }
     }
 
     @Override

@@ -43,12 +43,18 @@ public class BookController {
         return "sucessoBook";
     }
     
-    @RequestMapping(value = "/updateBook.htm", method = RequestMethod.GET)
-    public String updateBook(@ModelAttribute("book") Book book, HttpServletRequest request){
+    @RequestMapping(value="/showBook.htm")
+    public String showBook(int id, Model model){
         BookDao bdao = new BookDao();
-        //bdao.update(book);
-        request.setAttribute("message", "The book updated successfully!");
-        return "listBook";
+        model.addAttribute("author", bdao.searchForId(id));
+        return "updateBook";
+    }
+    
+    @RequestMapping(value = "/updateBook.htm")
+    public String updateBook(Book book){
+        BookDao bdao = new BookDao();
+        bdao.update(book);
+        return "redirect:listBook.htm"; 
         
     }
     

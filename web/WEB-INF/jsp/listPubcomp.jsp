@@ -36,7 +36,7 @@
                             <tr>
                                 <td align="center">${pubcomp.id}</td>
                                 <td align="center">${pubcomp.name}</td>
-                                <td align="center"<a href="deletePubcomp.htm?id=${pubcomp.id}">Update</a></td>
+                                <td align="center"><a href="showPubcomp.htm?id=${pubcomp.id}">Update</a></td>
                                 <td align="center"><a href="deletePubcomp.htm?id=${pubcomp.id}">Delete</a></td>
                             </tr>
                         </c:forEach>  

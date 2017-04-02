@@ -66,7 +66,8 @@ public class AuthorDao implements IDao{
         return allAuthor;
     }
     
-    public Author searchForId(int id) {   
+    @Override
+    public Object searchForId(int id) {   
        return em.find(Author.class, id);
     }
 

@@ -36,13 +36,18 @@ public class PubcompController {
         return "sucessoPubcomp";
     }
     
-    @RequestMapping(value = "/updatePubcomp.htm", method = RequestMethod.GET)
-    public String updateBook(@ModelAttribute("pubcomp") Pubcomp pubcomp, HttpServletRequest request){
+    @RequestMapping(value="/showPubcomp.htm")
+    public String showPubcomp(int id, Model model){
         PubcompDao pdao = new PubcompDao();
-        //adao.update(author);
-        List<Object> list = pdao.list();
-        request.setAttribute("listPubcomp", list);
-        return "listPubcomp";   
+        model.addAttribute("pubcomp", pdao.searchForId(id));
+        return "updatePubcomp";
+    }
+    
+    @RequestMapping(value = "/updatePubcomp.htm")
+    public String updateBook(Pubcomp pubcomp){
+        PubcompDao pdao = new PubcompDao();
+        pdao.update(pubcomp);
+        return "redirect:listPubcomp.htm"; 
     }
     
     @RequestMapping(value = "/deletePubcomp.htm")
