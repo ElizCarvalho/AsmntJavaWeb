@@ -10,6 +10,7 @@ import com.github.elizcarvalho.entity.Author;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,8 +35,13 @@ public class AuthorController {
         return "sucessoAuthor";
     }
     
+    @RequestMapping(value="/startUpdateAuthor.htm", method = RequestMethod.GET )
+    public String startUpdateAuthor(@ModelAttribute("author") Author author, @RequestParam("id") String id){
+        return "registerAuthor";
+    }
+    
     @RequestMapping(value = "/updateAuthor.htm", method = RequestMethod.GET)
-    public String updateBook(@ModelAttribute("author") Author author, HttpServletRequest request){
+    public String updateBook(HttpServletRequest request, @RequestParam("id") String id){
         AuthorDao adao = new AuthorDao();
         //adao.update(author);
         List<Object> list = adao.list();
@@ -53,11 +59,9 @@ public class AuthorController {
     }
     
     @RequestMapping(value = "/listAuthor.htm", method = RequestMethod.GET)
-    public String listAuthor(HttpServletRequest req){
+    public String listAuthor(Model model){
         AuthorDao adao = new AuthorDao();
-        List<Object> list = adao.list();
-        req.setAttribute("listAuthor", list);
+        model.addAttribute("listAuthor", adao.list());
         return "listAuthor";
     }
-    
 }

@@ -11,6 +11,7 @@ import com.github.elizcarvalho.entity.Pubcomp;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,11 +55,9 @@ public class PubcompController {
     }
     
     @RequestMapping(value = "/listPubcomp.htm", method = RequestMethod.GET)
-    public String listAuthor(HttpServletRequest req){
+    public String listPubcomp (Model model){
         PubcompDao pdao = new PubcompDao();
-        List<Object> list = pdao.list();
-        req.setAttribute("listPubcomp", list);
-        return "listPubcomp"; 
+        model.addAttribute("listPubcomp", pdao.list());
+        return "listPubcomp";
     }
-    
 }

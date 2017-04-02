@@ -42,7 +42,7 @@
                             <td align="center">${book.author.name}</td>
                             <td align="center">${book.pubcomp.name}</td>
                             <td align="center">${book.relyear}</td>
-                            <td align="center"><a href="deleteBook.htm?id=${book.id}">Update</a></td>
+                            <td align="center"><a href="startUpdateBook.htm?id=${book.id}">Update</a></td>
                             <td align="center"><a href="deleteBook.htm?id=${book.id}">Delete</a></td>
                         </tr>
                         </c:forEach>

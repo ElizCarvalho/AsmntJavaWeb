@@ -14,6 +14,7 @@ import com.github.elizcarvalho.entity.Pubcomp;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,10 +65,9 @@ public class BookController {
     }
     
     @RequestMapping(value = "/listBook.htm", method = RequestMethod.GET)
-    public String listBook(HttpServletRequest req){
+    public String listBook(Model model){
         BookDao bdao = new BookDao();
-        List<Object> list = bdao.list();
-        req.setAttribute("listBook", list);
+        model.addAttribute("listBook", bdao.list());
         return "listBook";
     }
     

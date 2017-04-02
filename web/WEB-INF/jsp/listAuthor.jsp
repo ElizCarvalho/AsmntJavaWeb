@@ -36,7 +36,7 @@
                             <tr>
                                 <td align="center">${author.id}</td>
                                 <td align="center">${author.name}</td>
-                                <td align="center"><a href="deleteAuthor.htm?id=${author.id}">Update</a></td>
+                                <td align="center"><a href="startUpdateAuthor.htm?id=${author.id}">Update</a></td>
                                 <td align="center"><a href="deleteAuthor.htm?id=${author.id}">Delete</a></td>
                             </tr>
                         </c:forEach>  
